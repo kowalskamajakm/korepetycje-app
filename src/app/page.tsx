@@ -114,8 +114,11 @@ export default function LandingPage() {
 
         <section id="oferta" className="mx-auto max-w-3xl px-6 py-16">
           <h2 className="mb-2 text-center text-2xl font-semibold text-slate-900">Oferta</h2>
-          <p className="mb-8 text-center text-sm text-slate-500">
+          <p className="mb-2 text-center text-sm text-slate-500">
             Stawka: <span className="font-medium text-indigo-600">{RATE}</span>
+          </p>
+          <p className="mb-8 text-center text-sm font-medium text-green-600">
+            Pierwsza lekcja próbna bezpłatna!
           </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {offer.map((o) => (

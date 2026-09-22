@@ -17,11 +17,12 @@ export async function sendContactMessage(
 
   const name = String(formData.get("name") ?? "").trim();
   const email = String(formData.get("email") ?? "").trim();
+  const childName = String(formData.get("childName") ?? "").trim();
   const subject = String(formData.get("subject") ?? "").trim();
   const grade = String(formData.get("grade") ?? "").trim();
   const message = String(formData.get("message") ?? "").trim();
 
-  if (!name || !email || !subject || !grade || !message) {
+  if (!name || !email || !childName || !subject || !grade || !message) {
     return { error: "Wypełnij wszystkie pola." };
   }
 
@@ -31,6 +32,7 @@ export async function sendContactMessage(
       subject: `Wiadomość ze strony od ${name} (${subject}, klasa ${grade})`,
       html: `
         <p><strong>Od:</strong> ${name} (${email})</p>
+        <p><strong>Dziecko:</strong> ${childName}</p>
         <p><strong>Przedmiot:</strong> ${subject}</p>
         <p><strong>Klasa:</strong> ${grade}</p>
         <p><strong>Wiadomość:</strong></p>
