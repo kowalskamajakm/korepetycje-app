@@ -247,26 +247,18 @@ function WeekView({
   );
 }
 
-function ListView({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: boolean }) {
-  const today = todayStr();
-  const upcoming = lessons
-    .filter((l) => l.lesson_date >= today)
-    .sort(
-      (a, b) =>
-        a.lesson_date.localeCompare(b.lesson_date) ||
-        a.start_time.localeCompare(b.start_time)
-    );
-
+function groupByDate(lessons: Lesson[]) {
   const grouped = new Map<string, Lesson[]>();
-  for (const lesson of upcoming) {
+  for (const lesson of lessons) {
     const list = grouped.get(lesson.lesson_date) ?? [];
     list.push(lesson);
     grouped.set(lesson.lesson_date, list);
   }
+  return grouped;
+}
 
-  if (grouped.size === 0) {
-    return <p className="text-sm text-slate-500">Brak zaplanowanych lekcji od dziś.</p>;
-  }
+function DayGroupedList({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: boolean }) {
+  const grouped = groupByDate(lessons);
 
   return (
     <div className="space-y-6">
@@ -322,6 +314,48 @@ function ListView({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: boolean })
           </div>
         </div>
       ))}
+    </div>
+  );
+}
+
+function ListView({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: boolean }) {
+  const today = todayStr();
+
+  const upcoming = lessons
+    .filter((l) => l.lesson_date >= today)
+    .sort(
+      (a, b) =>
+        a.lesson_date.localeCompare(b.lesson_date) ||
+        a.start_time.localeCompare(b.start_time)
+    );
+
+  const past = lessons
+    .filter((l) => l.lesson_date < today)
+    .sort(
+      (a, b) =>
+        b.lesson_date.localeCompare(a.lesson_date) ||
+        b.start_time.localeCompare(a.start_time)
+    );
+
+  return (
+    <div className="space-y-8">
+      <section>
+        <h2 className="mb-3 text-base font-semibold text-slate-900">Nadchodzące</h2>
+        {upcoming.length === 0 ? (
+          <p className="text-sm text-slate-500">Brak zaplanowanych lekcji od dziś.</p>
+        ) : (
+          <DayGroupedList lessons={upcoming} isAdmin={isAdmin} />
+        )}
+      </section>
+
+      {past.length > 0 && (
+        <details>
+          <summary className="mb-3 cursor-pointer text-base font-semibold text-slate-900">
+            Odbyte ({past.length})
+          </summary>
+          <DayGroupedList lessons={past} isAdmin={isAdmin} />
+        </details>
+      )}
     </div>
   );
 }
