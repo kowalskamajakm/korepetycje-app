@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
-import { GraduationCap, CalendarDays, Wallet, BookOpen, FolderOpen, Star } from "lucide-react";
+import { GraduationCap, CalendarDays, Wallet, BookOpen, FolderOpen, Star, Phone, Mail } from "lucide-react";
+import { ContactForm } from "@/app/contact-form";
+
+const PHONE = "503 654 976";
+const PHONE_HREF = "+48503654976";
+const CONTACT_EMAIL = "mkowalska.tutoring@gmail.com";
+const RATE = "60 zł / h";
 
 const APP_NAME = "MKowalska Tutoring";
 
@@ -43,12 +49,17 @@ export default function LandingPage() {
             </div>
             <span className="text-sm font-semibold text-slate-900">{APP_NAME}</span>
           </div>
-          <Link
-            href="/login"
-            className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
-          >
-            Zaloguj się
-          </Link>
+          <div className="flex items-center gap-4">
+            <a href="#kontakt" className="hidden text-sm font-medium text-slate-600 hover:text-slate-900 sm:inline">
+              Kontakt
+            </a>
+            <Link
+              href="/login"
+              className="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-indigo-700"
+            >
+              Zaloguj się
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -79,12 +90,12 @@ export default function LandingPage() {
 
         <section id="o-mnie" className="border-t border-slate-100 bg-slate-50">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 px-6 py-16 sm:flex-row sm:items-start">
-            <div className="relative h-32 w-32 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-md">
+            <div className="relative h-56 w-56 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-md">
               <Image
                 src="/maja-photo.jpg"
                 alt="Maja Kowalska"
                 fill
-                sizes="128px"
+                sizes="224px"
                 className="object-cover object-top"
                 priority
               />
@@ -102,7 +113,10 @@ export default function LandingPage() {
         </section>
 
         <section id="oferta" className="mx-auto max-w-3xl px-6 py-16">
-          <h2 className="mb-8 text-center text-2xl font-semibold text-slate-900">Oferta</h2>
+          <h2 className="mb-2 text-center text-2xl font-semibold text-slate-900">Oferta</h2>
+          <p className="mb-8 text-center text-sm text-slate-500">
+            Stawka: <span className="font-medium text-indigo-600">{RATE}</span>
+          </p>
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {offer.map((o) => (
               <div key={o.subject} className="rounded-xl border border-slate-200 p-6 shadow-sm">
@@ -150,6 +164,46 @@ export default function LandingPage() {
                 <p className="text-xs text-slate-500">{f.description}</p>
               </div>
             ))}
+          </div>
+        </section>
+        <section id="kontakt" className="border-t border-slate-100 bg-slate-50">
+          <div className="mx-auto max-w-3xl px-6 py-16">
+            <h2 className="mb-2 text-center text-2xl font-semibold text-slate-900">Kontakt</h2>
+            <p className="mb-10 text-center text-sm text-slate-500">
+              Napisz, zadzwoń albo wyślij wiadomość przez formularz.
+            </p>
+            <div className="grid grid-cols-1 gap-8 sm:grid-cols-2">
+              <div className="space-y-4">
+                <a
+                  href={`tel:${PHONE_HREF}`}
+                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-indigo-200"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                    <Phone className="h-4.5 w-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-500">Telefon</p>
+                    <p className="text-sm font-medium text-slate-900">{PHONE}</p>
+                  </div>
+                </a>
+                <a
+                  href={`mailto:${CONTACT_EMAIL}`}
+                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-indigo-200"
+                >
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                    <Mail className="h-4.5 w-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-xs text-slate-500">E-mail</p>
+                    <p className="text-sm font-medium text-slate-900">{CONTACT_EMAIL}</p>
+                  </div>
+                </a>
+              </div>
+
+              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </section>
       </main>
