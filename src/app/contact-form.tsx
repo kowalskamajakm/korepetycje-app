@@ -43,6 +43,36 @@ export function ContactForm() {
         <input id="email" name="email" type="email" required className={inputClass} />
       </div>
 
+      <div className="grid grid-cols-2 gap-4">
+        <div>
+          <label htmlFor="subject" className="mb-1 block text-sm font-medium text-slate-700">
+            Przedmiot
+          </label>
+          <select id="subject" name="subject" required defaultValue="" className={inputClass}>
+            <option value="" disabled>
+              Wybierz
+            </option>
+            <option value="Matematyka">Matematyka</option>
+            <option value="Angielski">Angielski</option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="grade" className="mb-1 block text-sm font-medium text-slate-700">
+            Klasa
+          </label>
+          <select id="grade" name="grade" required defaultValue="" className={inputClass}>
+            <option value="" disabled>
+              Wybierz
+            </option>
+            {Array.from({ length: 8 }, (_, i) => i + 1).map((n) => (
+              <option key={n} value={n}>
+                Klasa {n}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div>
         <label htmlFor="message" className="mb-1 block text-sm font-medium text-slate-700">
           Wiadomość
