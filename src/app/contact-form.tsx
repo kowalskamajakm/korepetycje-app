@@ -31,7 +31,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="name" className="mb-1 block text-sm font-medium text-slate-700">
-          Twoje imię
+          Twoje imię i nazwisko
         </label>
         <input id="name" name="name" required className={inputClass} />
       </div>
@@ -45,7 +45,7 @@ export function ContactForm() {
 
       <div>
         <label htmlFor="childName" className="mb-1 block text-sm font-medium text-slate-700">
-          Imię i nazwisko dziecka
+          Imię dziecka
         </label>
         <input id="childName" name="childName" required className={inputClass} />
       </div>
