@@ -28,7 +28,7 @@ export function StudentAccountSection({
       </h2>
 
       {account ? (
-        <div className="mb-4 flex items-center justify-between rounded-lg border border-slate-200 bg-white px-4 py-2 text-sm">
+        <div className="mb-4 flex items-center justify-between rounded-lg border border-slate-200 bg-surface px-4 py-2 text-sm">
           <span>{account.full_name || account.email || account.id}</span>
           <form action={removeStudentAccount.bind(null, studentId)}>
             <button type="submit" className="text-red-600 hover:text-red-800">
@@ -43,7 +43,7 @@ export function StudentAccountSection({
       )}
 
       {!account && (
-        <details className="rounded-lg border border-slate-200 bg-white p-4">
+        <details className="rounded-lg border border-slate-200 bg-surface p-4">
           <summary className="cursor-pointer text-sm font-medium text-slate-700">
             + Utwórz konto dla ucznia
           </summary>
@@ -56,7 +56,7 @@ export function StudentAccountSection({
                 name="email"
                 type="email"
                 required
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
               />
             </div>
             <div>
@@ -68,7 +68,7 @@ export function StudentAccountSection({
                 type="text"
                 required
                 minLength={8}
-                className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
               />
               <p className="mt-1 text-xs text-slate-500">
                 Przekaż to hasło uczniowi — będzie widział te same sekcje co

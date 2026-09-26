@@ -97,7 +97,7 @@ export default async function HomeworkPage() {
           {todo.length === 0 ? (
             <p className="text-sm text-slate-500">Brak zaległych zadań.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface">
               <ul className="divide-y divide-slate-100">{todo.map(renderRow)}</ul>
             </div>
           )}
@@ -110,7 +110,7 @@ export default async function HomeworkPage() {
           {done.length === 0 ? (
             <p className="text-sm text-slate-500">Brak zrobionych zadań.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white opacity-75">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface opacity-75">
               <ul className="divide-y divide-slate-100">{done.map(renderRow)}</ul>
             </div>
           )}

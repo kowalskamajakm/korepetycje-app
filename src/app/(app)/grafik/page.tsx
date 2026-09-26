@@ -49,7 +49,7 @@ export default async function SchedulePage() {
 
       <ScheduleView lessons={lessons ?? []} isAdmin={isAdmin} />
 
-      <details className="mt-10 max-w-lg rounded-lg border border-slate-200 bg-white p-4">
+      <details className="mt-10 max-w-lg rounded-lg border border-slate-200 bg-surface p-4">
         <summary className="cursor-pointer text-sm font-medium text-slate-700">
           📅 Subskrybuj ten grafik w kalendarzu iPhone
         </summary>

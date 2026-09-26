@@ -20,8 +20,8 @@ export default async function PanelHomePage() {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:max-w-xl">
         {quickLinks.map((item) => (
           <Link key={item.title} href={item.href}>
-            <div className="group flex flex-col items-start rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-0.5 hover:border-indigo-200 hover:shadow-md">
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-50 text-indigo-600 transition group-hover:bg-indigo-600 group-hover:text-white">
+            <div className="group flex flex-col items-start rounded-2xl border border-slate-200 bg-surface p-8 shadow-sm transition hover:-translate-y-0.5 hover:border-accent-soft hover:shadow-md">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent transition group-hover:bg-indigo-600 group-hover:text-white">
                 <item.icon className="h-6 w-6" />
               </div>
               <h2 className="mb-1 text-lg font-medium text-slate-900">{item.title}</h2>

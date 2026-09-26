@@ -32,7 +32,7 @@ export function ParentSection({
           Brak podpiętych kont rodziców.
         </p>
       ) : (
-        <ul className="mb-4 divide-y divide-slate-100 rounded-lg border border-slate-200 bg-white">
+        <ul className="mb-4 divide-y divide-slate-100 rounded-lg border border-slate-200 bg-surface">
           {parents.map((p) => (
             <li
               key={p.parent_id}
@@ -60,7 +60,7 @@ export function ParentSection({
         </ul>
       )}
 
-      <details className="rounded-lg border border-slate-200 bg-white p-4">
+      <details className="rounded-lg border border-slate-200 bg-surface p-4">
         <summary className="cursor-pointer text-sm font-medium text-slate-700">
           + Dodaj rodzica
         </summary>
@@ -71,7 +71,7 @@ export function ParentSection({
             </label>
             <input
               name="full_name"
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+              className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
             />
           </div>
           <div>
@@ -82,7 +82,7 @@ export function ParentSection({
               name="email"
               type="email"
               required
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+              className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
             />
           </div>
           <div>
@@ -94,7 +94,7 @@ export function ParentSection({
               type="text"
               required
               minLength={8}
-              className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+              className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
             />
             <p className="mt-1 text-xs text-slate-500">
               Przekaż to hasło rodzicowi — po pierwszym logowaniu nie da się

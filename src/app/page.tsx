@@ -40,7 +40,7 @@ const features = [
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-surface">
       <header className="border-b border-slate-100">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">
           <div className="flex items-center gap-2">
@@ -90,7 +90,7 @@ export default function LandingPage() {
 
         <section id="o-mnie" className="border-t border-slate-100 bg-slate-50">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-8 px-6 py-16 sm:flex-row sm:items-start">
-            <div className="relative h-56 w-56 shrink-0 overflow-hidden rounded-full border-4 border-white shadow-md">
+            <div className="relative h-56 w-56 shrink-0 overflow-hidden rounded-full border-4 border-surface shadow-md">
               <Image
                 src="/maja-photo.jpg"
                 alt="Maja Kowalska"
@@ -100,7 +100,7 @@ export default function LandingPage() {
                 priority
               />
             </div>
-            <div className="relative rounded-2xl rounded-tl-none border border-slate-200 bg-white p-6 shadow-sm sm:before:absolute sm:before:-left-3 sm:before:top-6 sm:before:h-4 sm:before:w-4 sm:before:rotate-45 sm:before:border-b sm:before:border-l sm:before:border-slate-200 sm:before:bg-white">
+            <div className="relative rounded-2xl rounded-tl-none border border-slate-200 bg-surface p-6 shadow-sm sm:before:absolute sm:before:-left-3 sm:before:top-6 sm:before:h-4 sm:before:w-4 sm:before:rotate-45 sm:before:border-b sm:before:border-l sm:before:border-slate-200 sm:before:bg-surface">
               <h2 className="mb-1 text-base font-semibold text-slate-900">Cześć, jestem Maja 👋</h2>
               <p className="text-sm leading-relaxed text-slate-600">
                 Uczę matematyki i języka angielskiego na poziomie podstawówki, w tym
@@ -115,7 +115,7 @@ export default function LandingPage() {
         <section id="oferta" className="mx-auto max-w-3xl px-6 py-16">
           <h2 className="mb-2 text-center text-2xl font-semibold text-slate-900">Oferta</h2>
           <p className="mb-2 text-center text-sm text-slate-500">
-            Stawka: <span className="font-medium text-indigo-600">{RATE}</span>
+            Stawka: <span className="font-medium text-accent">{RATE}</span>
           </p>
           <p className="mb-8 text-center text-sm font-medium text-green-600">
             Pierwsza lekcja próbna bezpłatna!
@@ -124,7 +124,7 @@ export default function LandingPage() {
             {offer.map((o) => (
               <div key={o.subject} className="rounded-xl border border-slate-200 p-6 shadow-sm">
                 <h3 className="mb-1 text-lg font-medium text-slate-900">{o.subject}</h3>
-                <p className="mb-2 text-sm font-medium text-indigo-600">{o.level}</p>
+                <p className="mb-2 text-sm font-medium text-accent">{o.level}</p>
                 <p className="text-sm text-slate-500">{o.details}</p>
               </div>
             ))}
@@ -136,7 +136,7 @@ export default function LandingPage() {
             <h2 className="mb-8 text-center text-2xl font-semibold text-slate-900">Opinie</h2>
             <div className="grid grid-cols-1 gap-4">
               {testimonials.map((t) => (
-                <div key={t.name} className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm">
+                <div key={t.name} className="rounded-2xl border border-slate-200 bg-surface p-6 shadow-sm">
                   <div className="mb-3 flex gap-0.5 text-amber-400">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star key={i} className="h-4 w-4 fill-current" />
@@ -160,7 +160,7 @@ export default function LandingPage() {
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             {features.map((f) => (
               <div key={f.title} className="rounded-xl border border-slate-200 p-5 text-center">
-                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                <div className="mx-auto mb-3 flex h-10 w-10 items-center justify-center rounded-lg bg-accent-soft text-accent">
                   <f.icon className="h-5 w-5" />
                 </div>
                 <h3 className="mb-1 text-sm font-medium text-slate-900">{f.title}</h3>
@@ -179,9 +179,9 @@ export default function LandingPage() {
               <div className="space-y-4">
                 <a
                   href={`tel:${PHONE_HREF}`}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-indigo-200"
+                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-surface p-4 transition hover:border-accent-soft"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
                     <Phone className="h-4.5 w-4.5" />
                   </div>
                   <div>
@@ -191,9 +191,9 @@ export default function LandingPage() {
                 </a>
                 <a
                   href={`mailto:${CONTACT_EMAIL}`}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-white p-4 transition hover:border-indigo-200"
+                  className="flex items-center gap-3 rounded-xl border border-slate-200 bg-surface p-4 transition hover:border-accent-soft"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-accent-soft text-accent">
                     <Mail className="h-4.5 w-4.5" />
                   </div>
                   <div>
@@ -203,7 +203,7 @@ export default function LandingPage() {
                 </a>
               </div>
 
-              <div className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-xl border border-slate-200 bg-surface p-6 shadow-sm">
                 <ContactForm />
               </div>
             </div>

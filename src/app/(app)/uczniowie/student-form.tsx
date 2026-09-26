@@ -32,7 +32,7 @@ export function StudentForm({
           name="full_name"
           required
           defaultValue={student?.full_name}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+          className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
         />
       </div>
 
@@ -45,7 +45,7 @@ export function StudentForm({
             id="subject"
             name="subject"
             defaultValue={student?.subject ?? ""}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
           />
         </div>
         <div>
@@ -56,7 +56,7 @@ export function StudentForm({
             id="subject_2"
             name="subject_2"
             defaultValue={student?.subject_2 ?? ""}
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+            className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
           />
         </div>
       </div>
@@ -69,7 +69,7 @@ export function StudentForm({
           id="level"
           name="level"
           defaultValue={student?.level ?? ""}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+          className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
         />
       </div>
 
@@ -83,7 +83,7 @@ export function StudentForm({
           type="url"
           placeholder="https://teams.microsoft.com/..."
           defaultValue={student?.teams_link ?? ""}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+          className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
         />
         <p className="mt-1 text-xs text-slate-500">
           Ten sam link będzie dodawany do każdego mailowego przypomnienia o lekcji dla tego ucznia.
@@ -99,7 +99,7 @@ export function StudentForm({
           name="notes"
           rows={4}
           defaultValue={student?.notes ?? ""}
-          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+          className="w-full rounded-lg border border-slate-300 bg-surface px-3 py-2 text-sm text-slate-900 outline-none focus:border-accent focus:ring-2 focus:ring-accent-soft"
         />
       </div>
 

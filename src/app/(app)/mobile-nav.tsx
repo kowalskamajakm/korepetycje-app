@@ -12,7 +12,7 @@ export function MobileNav({ profile }: { profile: Profile | null }) {
   const isAdmin = profile?.role === "admin";
 
   return (
-    <div className="flex flex-col border-b border-slate-200 bg-white md:hidden">
+    <div className="flex flex-col border-b border-slate-200 bg-surface md:hidden">
       <div className="flex items-center justify-between px-4 py-3">
         <Link href="/panel" className="flex items-center gap-2">
           <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-600 text-white">
@@ -43,7 +43,7 @@ export function MobileNav({ profile }: { profile: Profile | null }) {
                 href={item.href}
                 className={`flex shrink-0 items-center gap-1.5 rounded-lg px-3 py-1.5 text-xs font-medium transition ${
                   active
-                    ? "bg-indigo-50 text-indigo-700"
+                    ? "bg-accent-soft text-accent"
                     : "text-slate-600 hover:bg-slate-50"
                 }`}
               >

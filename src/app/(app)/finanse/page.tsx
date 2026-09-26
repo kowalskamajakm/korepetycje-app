@@ -115,8 +115,8 @@ export default async function FinancePage() {
       </p>
 
       <div className="mb-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+        <div className="rounded-xl border border-slate-200 bg-surface p-5 shadow-sm">
+          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
             <Clock className="h-4.5 w-4.5" />
           </div>
           <p className="text-2xl font-semibold text-slate-900">
@@ -124,8 +124,8 @@ export default async function FinancePage() {
           </p>
           <p className="text-sm text-slate-500">Godziny w tym tygodniu</p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+        <div className="rounded-xl border border-slate-200 bg-surface p-5 shadow-sm">
+          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
             <CalendarRange className="h-4.5 w-4.5" />
           </div>
           <p className="text-2xl font-semibold text-slate-900">
@@ -133,8 +133,8 @@ export default async function FinancePage() {
           </p>
           <p className="text-sm text-slate-500">Godziny w tym miesiącu</p>
         </div>
-        <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-50 text-indigo-600">
+        <div className="rounded-xl border border-slate-200 bg-surface p-5 shadow-sm">
+          <div className="mb-3 flex h-9 w-9 items-center justify-center rounded-lg bg-accent-soft text-accent">
             <Wallet className="h-4.5 w-4.5" />
           </div>
           <p className="text-2xl font-semibold text-slate-900">

@@ -12,7 +12,7 @@ export function Sidebar({ profile }: { profile: Profile | null }) {
   const isAdmin = profile?.role === "admin";
 
   return (
-    <aside className="hidden h-screen w-60 shrink-0 flex-col border-r border-slate-200 bg-white md:flex">
+    <aside className="hidden h-screen w-60 shrink-0 flex-col border-r border-slate-200 bg-surface md:flex">
       <Link href="/panel" className="flex items-center gap-2 px-5 py-5">
         <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-indigo-600 text-white">
           <GraduationCap className="h-5 w-5" />
@@ -32,7 +32,7 @@ export function Sidebar({ profile }: { profile: Profile | null }) {
                 href={item.href}
                 className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition ${
                   active
-                    ? "bg-indigo-50 text-indigo-700"
+                    ? "bg-accent-soft text-accent"
                     : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
                 }`}
               >
@@ -48,7 +48,7 @@ export function Sidebar({ profile }: { profile: Profile | null }) {
           href="/profil"
           className={`flex items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium transition ${
             pathname === "/profil"
-              ? "bg-indigo-50 text-indigo-700"
+              ? "bg-accent-soft text-accent"
               : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
           }`}
         >

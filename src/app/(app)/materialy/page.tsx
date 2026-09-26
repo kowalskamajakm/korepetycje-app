@@ -104,7 +104,7 @@ export default async function MaterialsPage() {
           {general.length === 0 ? (
             <p className="text-sm text-slate-500">Brak materiałów ogólnych.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface">
               <ul className="divide-y divide-slate-100">{general.map(renderRow)}</ul>
             </div>
           )}
@@ -117,7 +117,7 @@ export default async function MaterialsPage() {
           {perStudent.length === 0 ? (
             <p className="text-sm text-slate-500">Brak przypisanych materiałów.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface">
               <ul className="divide-y divide-slate-100">{perStudent.map(renderRow)}</ul>
             </div>
           )}

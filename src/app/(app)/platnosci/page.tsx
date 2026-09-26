@@ -118,7 +118,7 @@ export default async function PaymentsPage() {
           {overdue.length === 0 ? (
             <p className="text-sm text-slate-500">Brak zaległych płatności.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-red-200 bg-white">
+            <div className="overflow-hidden rounded-xl border border-red-200 bg-surface">
               <ul className="divide-y divide-red-100">
                 {overdue.map(renderRow)}
               </ul>
@@ -133,7 +133,7 @@ export default async function PaymentsPage() {
           {upcoming.length === 0 ? (
             <p className="text-sm text-slate-500">Brak nadchodzących płatności.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface">
               <ul className="divide-y divide-slate-100">
                 {upcoming.map(renderRow)}
               </ul>
@@ -148,7 +148,7 @@ export default async function PaymentsPage() {
           {paid.length === 0 ? (
             <p className="text-sm text-slate-500">Brak opłaconych pozycji.</p>
           ) : (
-            <div className="overflow-hidden rounded-xl border border-slate-200 bg-white opacity-75">
+            <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface opacity-75">
               <ul className="divide-y divide-slate-100">{paid.map(renderRow)}</ul>
             </div>
           )}

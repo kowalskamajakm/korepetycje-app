@@ -113,7 +113,7 @@ function MonthView({
           return (
             <div
               key={day}
-              className={`min-h-24 bg-white p-1 ${inMonth ? "" : "bg-slate-50 text-slate-300"}`}
+              className={`min-h-24 bg-surface p-1 ${inMonth ? "" : "bg-slate-50 text-slate-300"}`}
             >
               <div
                 className={`mb-1 text-xs ${day === today ? "inline-flex h-5 w-5 items-center justify-center rounded-full bg-indigo-600 font-medium text-white" : "text-slate-500"}`}
@@ -167,7 +167,7 @@ function WeekView({
   }, [lessons]);
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-slate-200 bg-white">
+    <div className="overflow-x-auto rounded-lg border border-slate-200 bg-surface">
       <div className="grid min-w-[700px] grid-cols-[50px_repeat(7,1fr)]">
         <div />
         {days.map((day) => (
@@ -267,7 +267,7 @@ function DayGroupedList({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: bool
           <h2 className="mb-2 text-sm font-medium capitalize text-slate-500">
             {formatDayLabel(date)}
           </h2>
-          <div className="overflow-hidden rounded-xl border border-slate-200 bg-white">
+          <div className="overflow-hidden rounded-xl border border-slate-200 bg-surface">
             <ul className="divide-y divide-slate-100">
               {dayLessons.map((lesson) => (
                 <li
@@ -382,7 +382,7 @@ export function ScheduleView({
   return (
     <div>
       <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
-        <div className="flex rounded-lg border border-slate-200 bg-white p-0.5 text-sm">
+        <div className="flex rounded-lg border border-slate-200 bg-surface p-0.5 text-sm">
           {(["lista", "miesiac", "tydzien"] as const).map((m) => (
             <button
               key={m}
