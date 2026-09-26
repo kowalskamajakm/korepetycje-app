@@ -1,15 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #f7f7fb;
+  --foreground: #201c3d;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-manrope);
+
+  /* Neutralna paleta z lekkim fioletowym odcieniem, zamiast czystej szarości. */
+  --color-slate-50: #f7f7fb;
+  --color-slate-100: #f1f0fb;
+  --color-slate-200: #e3e1f5;
+  --color-slate-300: #cac7e8;
+  --color-slate-400: #a29dc9;
+  --color-slate-500: #7d77ac;
+  --color-slate-600: #5b5779;
+  --color-slate-700: #453f66;
+  --color-slate-800: #302c4d;
+  --color-slate-900: #201c3d;
 }
 
 body {
@@ -18,5 +29,5 @@ body {
 }
 
 ::selection {
-  background: #c7d2fe;
+  background: #cac7e8;
 }
