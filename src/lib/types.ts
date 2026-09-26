@@ -55,6 +55,12 @@ export type Material = {
   students: { id: string; full_name: string } | null;
 };
 
+export type StudentAccount = {
+  id: string;
+  full_name: string | null;
+  email: string | null;
+} | null;
+
 export type ParentLink = {
   parent_id: string;
   profiles: {

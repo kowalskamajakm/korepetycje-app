@@ -4,7 +4,8 @@ import { requireAdmin } from "@/lib/supabase/require-admin";
 import { updateStudent } from "@/app/actions/students";
 import { StudentForm } from "@/app/(app)/uczniowie/student-form";
 import { ParentSection } from "../parent-section";
-import type { ParentLink, Student } from "@/lib/types";
+import { StudentAccountSection } from "../student-account-section";
+import type { ParentLink, Student, StudentAccount } from "@/lib/types";
 
 export default async function EditStudentPage(
   props: PageProps<"/uczniowie/[id]">
@@ -15,9 +16,13 @@ export default async function EditStudentPage(
   const supabase = await createClient();
   const { data: student } = (await supabase
     .from("students")
-    .select("id, full_name, subject, level, notes, teams_link, created_at")
+    .select(
+      "id, full_name, subject, level, notes, teams_link, created_at, linked_account:profiles!linked_user_id(id, full_name, email)"
+    )
     .eq("id", id)
-    .single()) as { data: Student | null };
+    .single()) as unknown as {
+    data: (Student & { linked_account: StudentAccount }) | null;
+  };
 
   if (!student) {
     notFound();
@@ -41,6 +46,10 @@ export default async function EditStudentPage(
         submitLabel="Zapisz zmiany"
       />
       <ParentSection studentId={student.id} parents={parents ?? []} />
+      <StudentAccountSection
+        studentId={student.id}
+        account={student.linked_account}
+      />
     </div>
   );
 }

@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 
 export type Profile = {
   id: string;
-  role: "admin" | "parent";
+  role: "admin" | "parent" | "student";
   full_name: string | null;
   email: string | null;
   calendar_token: string;
