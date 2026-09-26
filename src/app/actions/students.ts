@@ -11,6 +11,7 @@ function readStudentFields(formData: FormData) {
   return {
     full_name: String(formData.get("full_name") ?? "").trim(),
     subject: String(formData.get("subject") ?? "").trim() || null,
+    subject_2: String(formData.get("subject_2") ?? "").trim() || null,
     level: String(formData.get("level") ?? "").trim() || null,
     notes: String(formData.get("notes") ?? "").trim() || null,
     teams_link: String(formData.get("teams_link") ?? "").trim() || null,

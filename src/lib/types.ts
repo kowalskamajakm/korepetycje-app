@@ -2,6 +2,7 @@ export type Student = {
   id: string;
   full_name: string;
   subject: string | null;
+  subject_2: string | null;
   level: string | null;
   notes: string | null;
   teams_link: string | null;

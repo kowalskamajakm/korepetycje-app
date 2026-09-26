@@ -10,7 +10,7 @@ export default async function StudentsPage() {
   const supabase = await createClient();
   const { data: students } = await supabase
     .from("students")
-    .select("id, full_name, subject, level, notes, created_at")
+    .select("id, full_name, subject, subject_2, level, notes, created_at")
     .order("full_name") as { data: Student[] | null };
 
   return (
@@ -48,7 +48,7 @@ export default async function StudentsPage() {
                     {student.full_name}
                   </td>
                   <td className="px-4 py-3 text-slate-600">
-                    {student.subject || "—"}
+                    {[student.subject, student.subject_2].filter(Boolean).join(", ") || "—"}
                   </td>
                   <td className="px-4 py-3 text-slate-600">
                     {student.level || "—"}

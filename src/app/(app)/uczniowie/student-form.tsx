@@ -39,7 +39,7 @@ export function StudentForm({
       <div className="grid grid-cols-2 gap-4">
         <div>
           <label htmlFor="subject" className="mb-1 block text-sm font-medium text-slate-700">
-            Przedmiot
+            Przedmiot 1
           </label>
           <input
             id="subject"
@@ -49,16 +49,28 @@ export function StudentForm({
           />
         </div>
         <div>
-          <label htmlFor="level" className="mb-1 block text-sm font-medium text-slate-700">
-            Poziom / klasa
+          <label htmlFor="subject_2" className="mb-1 block text-sm font-medium text-slate-700">
+            Przedmiot 2 (opcjonalnie)
           </label>
           <input
-            id="level"
-            name="level"
-            defaultValue={student?.level ?? ""}
+            id="subject_2"
+            name="subject_2"
+            defaultValue={student?.subject_2 ?? ""}
             className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="level" className="mb-1 block text-sm font-medium text-slate-700">
+          Poziom / klasa
+        </label>
+        <input
+          id="level"
+          name="level"
+          defaultValue={student?.level ?? ""}
+          className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm text-slate-900 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+        />
       </div>
 
       <div>

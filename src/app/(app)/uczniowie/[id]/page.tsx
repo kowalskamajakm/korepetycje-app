@@ -17,7 +17,7 @@ export default async function EditStudentPage(
   const { data: student } = (await supabase
     .from("students")
     .select(
-      "id, full_name, subject, level, notes, teams_link, created_at, linked_account:profiles!linked_user_id(id, full_name, email)"
+      "id, full_name, subject, subject_2, level, notes, teams_link, created_at, linked_account:profiles!linked_user_id(id, full_name, email)"
     )
     .eq("id", id)
     .single()) as unknown as {
