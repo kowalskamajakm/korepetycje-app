@@ -21,28 +21,6 @@
   --color-slate-900: #201c3d;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #131226;
-    --foreground: #eeecfb;
-
-    --color-surface: #1c1a35;
-    --color-accent: #a29dff;
-    --color-accent-soft: #2a2756;
-
-    --color-slate-50: #131226;
-    --color-slate-100: #1c1a35;
-    --color-slate-200: #322f57;
-    --color-slate-300: #423e6b;
-    --color-slate-400: #6f6b96;
-    --color-slate-500: #8b87b3;
-    --color-slate-600: #a8a4cc;
-    --color-slate-700: #c3c0e0;
-    --color-slate-800: #dedcf0;
-    --color-slate-900: #f5f4fc;
-  }
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
