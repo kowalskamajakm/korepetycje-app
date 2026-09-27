@@ -19,13 +19,32 @@ export default async function HomeworkPage() {
 
   const { data: homework } = (await supabase
     .from("homework")
-    .select("id, student_id, description, due_date, status, students(id, full_name)")
+    .select(
+      "id, student_id, description, due_date, status, attachment_path, attachment_size, students(id, full_name)"
+    )
     .order("due_date", { nullsFirst: false })) as { data: Homework[] | null };
 
-  const todo = (homework ?? []).filter((h) => h.status === "do_zrobienia");
-  const done = (homework ?? []).filter((h) => h.status === "zrobione");
+  const withUrls = await Promise.all(
+    (homework ?? []).map(async (h) => {
+      if (!h.attachment_path) return { ...h, viewUrl: null, downloadUrl: null };
+      const [viewRes, downloadRes] = await Promise.all([
+        supabase.storage.from("materials").createSignedUrl(h.attachment_path, 60 * 60),
+        supabase.storage
+          .from("materials")
+          .createSignedUrl(h.attachment_path, 60 * 60, { download: true }),
+      ]);
+      return {
+        ...h,
+        viewUrl: viewRes.data?.signedUrl ?? null,
+        downloadUrl: downloadRes.data?.signedUrl ?? null,
+      };
+    })
+  );
 
-  const renderRow = (item: Homework) => (
+  const todo = withUrls.filter((h) => h.status === "do_zrobienia");
+  const done = withUrls.filter((h) => h.status === "zrobione");
+
+  const renderRow = (item: (typeof withUrls)[number]) => (
     <li
       key={item.id}
       className="flex flex-wrap items-center justify-between gap-2 px-4 py-3 text-sm"
@@ -39,18 +58,37 @@ export default async function HomeworkPage() {
           <span className="text-slate-400">termin: {formatDate(item.due_date)}</span>
         )}
       </div>
-      {isAdmin && (
-        <div className="flex items-center gap-3">
-          <form
-            action={toggleHomeworkStatus.bind(
-              null,
-              item.id,
-              item.status !== "zrobione"
-            )}
+      <div className="flex items-center gap-3">
+        {item.viewUrl && (
+          <a
+            href={item.viewUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
           >
-            <button
-              type="submit"
-              className={`rounded-lg px-2 py-1 text-xs font-medium ${
+            Otwórz
+          </a>
+        )}
+        {item.downloadUrl && (
+          <a
+            href={item.downloadUrl}
+            className="rounded-lg border border-slate-300 px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-100"
+          >
+            Pobierz
+          </a>
+        )}
+        {isAdmin && (
+          <>
+            <form
+              action={toggleHomeworkStatus.bind(
+                null,
+                item.id,
+                item.status !== "zrobione"
+              )}
+            >
+              <button
+                type="submit"
+                className={`rounded-lg px-2 py-1 text-xs font-medium ${
                 item.status === "zrobione"
                   ? "bg-slate-100 text-slate-600 hover:bg-slate-200"
                   : "bg-green-600 text-white hover:bg-green-700"
@@ -70,8 +108,9 @@ export default async function HomeworkPage() {
               Usuń
             </button>
           </form>
-        </div>
-      )}
+          </>
+        )}
+      </div>
     </li>
   );
 

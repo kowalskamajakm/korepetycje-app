@@ -14,7 +14,7 @@ export default async function EditHomeworkPage(
   const supabase = await createClient();
   const { data: homework } = (await supabase
     .from("homework")
-    .select("id, student_id, description, due_date, status, students(id, full_name)")
+    .select("id, student_id, description, due_date, status, attachment_path, attachment_size, students(id, full_name)")
     .eq("id", id)
     .single()) as { data: Homework | null };
 

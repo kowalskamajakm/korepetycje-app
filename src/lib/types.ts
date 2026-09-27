@@ -43,6 +43,8 @@ export type Homework = {
   description: string;
   due_date: string | null;
   status: HomeworkStatus;
+  attachment_path: string | null;
+  attachment_size: number | null;
   students: { id: string; full_name: string } | null;
 };
 
