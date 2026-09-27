@@ -15,7 +15,7 @@ export default async function EditLessonPage(
   const { data: lesson } = (await supabase
     .from("lessons")
     .select(
-      "id, student_id, lesson_date, start_time, duration_minutes, status, notes, students(id, full_name)"
+      "id, student_id, lesson_date, start_time, duration_minutes, status, notes, students(id, full_name, teams_link)"
     )
     .eq("id", id)
     .single()) as { data: Lesson | null };

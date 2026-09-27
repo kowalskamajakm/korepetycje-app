@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import { Video } from "lucide-react";
 import { deleteLesson } from "@/app/actions/lessons";
 import type { Lesson } from "@/lib/types";
 
@@ -223,8 +224,22 @@ function WeekView({
                     style={{ top, height }}
                     title={`${lesson.start_time.slice(0, 5)} ${lesson.students?.full_name ?? ""}`}
                   >
-                    <div className="font-medium">
-                      {lesson.start_time.slice(0, 5)}
+                    <div className="flex items-center justify-between gap-1">
+                      <span className="font-medium">
+                        {lesson.start_time.slice(0, 5)}
+                      </span>
+                      {lesson.students?.teams_link && (
+                        <a
+                          href={lesson.students.teams_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                          className="text-accent"
+                          title="Link do Teams"
+                        >
+                          <Video className="h-3 w-3" />
+                        </a>
+                      )}
                     </div>
                     <div className="truncate">
                       {lesson.students?.full_name ?? "—"}
@@ -289,6 +304,17 @@ function DayGroupedList({ lessons, isAdmin }: { lessons: Lesson[]; isAdmin: bool
                     >
                       {statusLabels[lesson.status]}
                     </span>
+                    {lesson.students?.teams_link && (
+                      <a
+                        href={lesson.students.teams_link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 text-accent hover:underline"
+                      >
+                        <Video className="h-3.5 w-3.5" />
+                        Teams
+                      </a>
+                    )}
                   </div>
                   {isAdmin && (
                     <div className="flex items-center gap-3">

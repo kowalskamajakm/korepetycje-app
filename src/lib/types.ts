@@ -19,7 +19,7 @@ export type Lesson = {
   duration_minutes: number;
   status: LessonStatus;
   notes: string | null;
-  students: { id: string; full_name: string } | null;
+  students: { id: string; full_name: string; teams_link: string | null } | null;
 };
 
 export type PaymentStatus = "nieoplacone" | "oplacone";

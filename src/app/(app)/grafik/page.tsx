@@ -20,7 +20,7 @@ export default async function SchedulePage() {
   const { data: lessons } = (await supabase
     .from("lessons")
     .select(
-      "id, student_id, lesson_date, start_time, duration_minutes, status, notes, students(id, full_name)"
+      "id, student_id, lesson_date, start_time, duration_minutes, status, notes, students(id, full_name, teams_link)"
     )
     .gte("lesson_date", isoDaysFromNow(-90))
     .lte("lesson_date", isoDaysFromNow(270))
