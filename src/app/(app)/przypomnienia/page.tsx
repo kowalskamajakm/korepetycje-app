@@ -10,15 +10,15 @@ export default async function RemindersPage() {
         Przypomnienia mailowe
       </h1>
       <p className="mb-6 text-sm text-slate-500">
-        Wysyła mail o lekcji zaplanowanej na jutro (z linkiem do Teams, jeśli
+        Wysyła mail o lekcji zaplanowanej na dziś (z linkiem do Teams, jeśli
         jest ustawiony przy uczniu) oraz o płatnościach, które są już
         przeterminowane. Każde przypomnienie wysyłane jest tylko raz.
       </p>
 
       <div className="mb-6 rounded-lg bg-amber-50 px-3 py-2 text-sm text-amber-800">
-        Dopóki aplikacja działa tylko na tym komputerze, przypomnienia trzeba
-        wysyłać ręcznie tym przyciskiem. Po opublikowaniu aplikacji w
-        internecie będą wysyłane automatycznie, raz dziennie.
+        Automatyczna wysyłka działa codziennie ok. 8:00 (Vercel Cron). Tym
+        przyciskiem możesz też wysłać przypomnienia ręcznie w dowolnej chwili
+        — np. jeśli chcesz sprawdzić działanie od razu.
       </div>
 
       <div className="mb-6 rounded-lg bg-blue-50 px-3 py-2 text-sm text-blue-800">

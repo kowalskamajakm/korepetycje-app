@@ -41,16 +41,12 @@ export async function runReminders(): Promise<ReminderResult> {
   const admin = createAdminClient();
   const result: ReminderResult = { lessons: 0, payments: 0, errors: [] };
 
-  const tomorrow = (() => {
-    const d = new Date();
-    d.setDate(d.getDate() + 1);
-    return d.toISOString().slice(0, 10);
-  })();
+  const todayForLessons = new Date().toISOString().slice(0, 10);
 
   const { data: lessons } = await admin
     .from("lessons")
     .select("id, lesson_date, start_time, duration_minutes, student_id, students(full_name, teams_link)")
-    .eq("lesson_date", tomorrow)
+    .eq("lesson_date", todayForLessons)
     .eq("status", "zaplanowana");
 
   for (const lesson of (lessons ?? []) as unknown as {
@@ -75,7 +71,7 @@ export async function runReminders(): Promise<ReminderResult> {
     const studentName = lesson.students?.full_name ?? "uczeń";
     const teamsLink = lesson.students?.teams_link;
     const html = `
-      <p>Przypomnienie o jutrzejszej lekcji.</p>
+      <p>Przypomnienie o dzisiejszej lekcji.</p>
       <p><strong>Uczeń:</strong> ${studentName}<br/>
       <strong>Data:</strong> ${formatDate(lesson.lesson_date)}<br/>
       <strong>Godzina:</strong> ${lesson.start_time.slice(0, 5)}<br/>
@@ -87,7 +83,7 @@ export async function runReminders(): Promise<ReminderResult> {
       try {
         await sendEmail({
           to: parent.email,
-          subject: `Przypomnienie: lekcja jutro o ${lesson.start_time.slice(0, 5)}`,
+          subject: `Przypomnienie: lekcja dziś o ${lesson.start_time.slice(0, 5)}`,
           html,
         });
       } catch {
